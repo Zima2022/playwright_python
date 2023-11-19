@@ -6,7 +6,7 @@ from settings import BASE_URL
 
 
 class TestSearch:
-    @pytest.mark.parametrize('keyword', ['python'])
+    @pytest.mark.parametrize('keyword', ['pytho'])
     def test_search(
         self,
         keyword: str,

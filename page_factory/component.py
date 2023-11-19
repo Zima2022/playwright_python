@@ -20,16 +20,16 @@ class Component(ABC):
         return self.page.locator(locator)
 
     def click(self, **kwargs) -> None:
-        with allure.step(f'Clicking {self.type_of} with name "{self.name}"'):
+        with allure.step(f'Clicking {self.type_of} with name {self.name!r}'):
             locator = self.get_locator(**kwargs)
             locator.click()
 
     def should_be_visible(self, **kwargs) -> None:
-        with allure.step(f'Checking that {self.type_of} "{self.name}" is visible'):
+        with allure.step(f'Checking that {self.type_of} {self.name!r} is visible'):
             locator = self.get_locator(**kwargs)
             expect(locator).to_be_visible()
 
     def should_have_text(self, text: str, **kwargs) -> None:
-        with allure.step(f'Checking that {self.type_of} "{self.name}" has text "{text}"'):
+        with allure.step(f'Checking that {self.type_of} {self.name!r} has text {text!r}'):
             locator = self.get_locator(**kwargs)
             expect(locator).to_have_text(text)

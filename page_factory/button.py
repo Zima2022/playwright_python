@@ -9,11 +9,11 @@ class Button(Component):
         return 'button'
 
     def hover(self, **kwargs) -> None:
-        with allure.step(f'Hovering over {self.type_of} with name "{self.name}"'):
+        with allure.step(f'Hovering over {self.type_of} with name {self.name!r}'):
             locator = self.get_locator(**kwargs)
             locator.hover()
 
     def double_click(self, **kwargs):
-        with allure.step(f'Double clicking {self.type_of} with name "{self.name}"'):
+        with allure.step(f'Double clicking {self.type_of} with name {self.name!r}'):
             locator = self.get_locator(**kwargs)
             locator.dblclick()

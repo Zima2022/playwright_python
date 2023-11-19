@@ -10,7 +10,7 @@ class Input(Component):
         return 'input'
 
     def fill(self, value: str, validate_value=False, **kwargs):
-        with allure.step(f'Fill {self.type_of} "{self.name}" to value "{value}"'):
+        with allure.step(f'Fill {self.type_of} {self.name!r} to value {value!r}'):
             locator = self.get_locator(**kwargs)
             locator.fill(value)
 
@@ -18,6 +18,6 @@ class Input(Component):
                 self.should_have_value(value, **kwargs)
 
     def should_have_value(self, value: str, **kwargs):
-        with allure.step(f'Checking that {self.type_of} "{self.name}" has a value "{value}"'):
+        with allure.step(f'Checking that {self.type_of} {self.name!r} has a value {value!r}'):
             locator = self.get_locator(**kwargs)
             expect(locator).to_have_value(value)

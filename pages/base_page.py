@@ -10,9 +10,9 @@ class BasePage:
         self.navbar = Navbar(page)
 
     def visit(self, url: str) -> Response | None:
-        with allure.step(f'Opening the url "{url}"'):
+        with allure.step(f'Opening the url {url!r}'):
             return self.page.goto(url, wait_until='networkidle')
 
     def reload(self) -> Response | None:
-        with allure.step(f'Reloading page with url "{self.page.url}"'):
+        with allure.step(f'Reloading page with url {self.page.url!r}'):
             return self.page.reload(wait_until='domcontentloaded')
